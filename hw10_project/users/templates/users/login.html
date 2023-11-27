@@ -1,33 +1,29 @@
-{% extends "quotes/base.html" %}
-
-{% block content %}
+{% extends "quotes/base.html" %} {% block content %}
 
 {% if messages %}
-<div>
+<div xmlns:users="http://www.w3.org/1999/xhtml" xmlns:users="http://www.w3.org/1999/xhtml">
     {% for message in messages %}
     <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
     {% endfor %}
 </div>
 {% endif %}
 
-<form action="{% url 'users:login' %}" method="post">
+<form action="{% url 'users:login' %}" method="post" accept-charset="utf-8">
     {% csrf_token %}
-    <div>
-        <label> Username:
-            {{ form.username }}
-        </label>
+    <div class="row">
+        <div class="form-group col-xs-3">
+            <label class="form-label">Username</label>
+            <div>{{ form.username }}</div>
+        </div>
     </div>
+    <div class="row">
+        <div class="form-group col-xs-3">
+            <label class="form-label">Password</label>
+            <div>{{ form.password }}</div>
+        </div>
+    </div>
+    <input type="submit" value="Login" class="btn btn-primary">
 
-    <div>
-        <label>Password:
-            {{ form.password }}
-        </label>
-    </div>
-
-    <div class="grid">
-        <button type="submit">Submit</button>
-        <button type="reset" class="secondary">Reset</button>
-    </div>
 </form>
 
 {% endblock %}

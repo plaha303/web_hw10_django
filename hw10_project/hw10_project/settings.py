@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'hw10_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hw10',
+        'NAME': 'hw_10',
         'USER': 'postgres',
         'PASSWORD': '567234',
         'HOST': 'localhost',
